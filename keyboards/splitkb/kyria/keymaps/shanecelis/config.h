@@ -28,3 +28,10 @@
 #define IGNORE_MOD_TAP_INTERRUPT
 
 #define SPLIT_HAND_PIN B0
+
+// Original definition that we're overriding.
+/* #define MATRIX_ROW_PINS \ */
+/*     { B4, E6, D7, D4 } */
+#undef MATRIX_ROW_PINS
+#define MATRIX_ROW_PINS \
+    { B4, E6, D7, C6 }
