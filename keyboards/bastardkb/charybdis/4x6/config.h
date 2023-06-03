@@ -46,7 +46,7 @@
 #define ROTATIONAL_TRANSFORM_ANGLE -25
 
 /* Handedness. */
-#define MASTER_RIGHT
+/* #define MASTER_RIGHT */
 
 /* Bootmagic Lite configuration. */
 #define BOOTMAGIC_LITE_ROW 0
