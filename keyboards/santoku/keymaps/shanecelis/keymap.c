@@ -466,7 +466,7 @@ bool oled_task_user(void) {
             case _QWERTY:
                 if (is_alt_tab_pressed == ALTTAB_PRESSED ||  alt_tab_timer > 0) {
                     oled_write_ln_P(PSTR("   Alt-Tab Active   "), true);
-                } else if ((host_keyboard_leds() & (1<<USB_LED_CAPS_LOCK))) {
+                } else if (host_keyboard_led_state().caps_lock) {
                     oled_write_ln_P(PSTR("      Caps Lock     "), true);
                 } else if ( is_caps_word_on() ) {
                     oled_write_ln_P(PSTR("      Caps Word     "), true);

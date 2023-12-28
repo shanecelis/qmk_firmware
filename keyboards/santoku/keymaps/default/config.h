@@ -20,5 +20,4 @@
 //#define COMBO_COUNT 6
 
 #define TAPPING_TOGGLE 2  /* How many times TT(__layer__) needs to be tapped to stick */
-#define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_TERM 150
