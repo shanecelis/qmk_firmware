@@ -545,6 +545,9 @@ void ps2_mouse_moved_user(report_mouse_t *mouse_report) {
     }
 }
 
+// XXX: inline was causing link errors on my build, so I'm defining it out of existence. I'm sorry.
+#define inline
+
 inline float fast_approximate_square_root(float input_number);
 // Fast approximation for square root
 inline float fast_approximate_square_root(float input_number) {
