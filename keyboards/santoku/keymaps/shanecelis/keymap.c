@@ -273,31 +273,32 @@ const char PROGMEM santoku_logo[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] =
     {/*QWERTY*/
-        {KC_ESC,   KC_Q,         KC_W,         KC_E,    KC_R,   KC_T,          KC_Y,            KC_U,   KC_I,        KC_O,         KC_P,            KC_BSPC},
-        {KC_LCTL,  LGUI_T(KC_A), LALT_T(KC_S), KC_D,    KC_F,   KC_G,          KC_H,            KC_J,   KC_K,        KC_L,         KC_SCLN,         KC_QUOT},
-        {SHFT_KEY, KC_Z,         KC_X,         KC_C,    KC_V,   KC_B,          KC_N,            KC_M,   KC_COMM,     KC_DOT,       KC_SLSH,         SHFT_KEY},
-        {___x___,  ___x___,      ___x___,      KC_LGUI, KC_SPC, TT(_FUNCTION), TT(_NAVIGATION), KC_ENT, TT(_SYMBOL), ___x___,      ___x___,         ___x___}},
+        {KC_ESC,      KC_Q,    KC_W,    KC_E,    KC_R,   KC_T,        KC_Y,            KC_U,   KC_I,    KC_O,    KC_P,    KC_BSPC},
+        {MT(MOD_LCTL,
+            KC_TAB),  KC_A,    KC_S,    KC_D,    KC_F,   KC_G,        KC_H,            KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT},
+        {KC_LSFT,     KC_Z,    KC_X,    KC_C,    KC_V,   KC_B,        KC_N,            KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT},
+        {___x___,     ___x___, ___x___, KC_LALT, KC_SPC, TT(_SYMBOL), TT(_NAVIGATION), KC_ENT, KC_LGUI, ___x___, ___x___, ___x___}},
 
     [_SYMBOL] =
     {/*SYMBOL*/
-        {KC_GRV,  KC_EXLM,      KC_AT,        KC_HASH,      KC_DLR,       KC_PERC,  KC_CIRC, KC_AMPR,      KC_ASTR,      KC_LPRN,      KC_RPRN,      KC_MINS},
-        {KC_TAB,  LGUI_T(KC_1), LALT_T(KC_2), KC_3,         KC_4,         KC_5,     KC_6,    KC_7,         KC_8,         KC_9,         KC_0,         KC_EQL},
-        {_______, KC_BSLS,      KC_UNDS,      KC_PLUS,      KC_LCBR,      KC_RCBR,  KC_LBRC, KC_RBRC,      KC_COMM,      KC_DOT,       KC_BSLS,      _______},
-        {___x___, ___x___,      ___x___,      KC_BSPC,      KC_SPC,       OVERVIEW, _______, _______,      KC_ENT,       ___x___,      ___x___,      ___x___}},
+        {KC_EQL,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,  KC_CIRC,       KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_MINS},
+        {KC_PLUS, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,     KC_6,          KC_7,    KC_8,    KC_9,    KC_0,    KC_GRV},
+        {_______, KC_PIPE, ___x___, ___x___, KC_LCBR, KC_RCBR,  KC_LBRC,       KC_RBRC, ___x___, KC_UNDS, KC_BSLS, _______},
+        {___x___, ___x___, ___x___, _______, KC_SPC,  _______, TT(_FUNCTION), _______, KC_ENT,  _______, ___x___, ___x___}},
 
     [_NAVIGATION] =
     {/*NAVIGATION*/
-        {KC_ESC,  ___x___,  ___x___,  ___x___,  ___x___,  ___x___,  KC_HOME,       KC_PGDN,       KC_PGUP,            KC_END,               ___x___, ___x___},
-        {TAPALTTB,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  ___x___,  KC_LEFT,       KC_DOWN,       KC_UP,              KC_RGHT,              ___x___, ___x___},
-        {_______, ___x___,  ___x___,  ___x___,  ___x___,  ___x___,  LGUI(KC_LBRC), LGUI(KC_RBRC), LGUI(LSFT(KC_EQL)), LGUI(LSFT(KC_MINS)),  ___x___, _______},
-        {___x___, ___x___,  ___x___,  KC_DEL,   KC_SPC,   OVERVIEW, _______,       _______,       KC_ENT,             ___x___,              ___x___, ___x___}},
+        {_______, ___x___,  ___x___,  ___x___,  ___x___,  ___x___,  KC_HOME,       KC_PGDN,       KC_PGUP,            KC_END,              ___x___, ___x___},
+        {TAPALTTB, ___x___, ___x___,  ___x___,  ___x___,  ___x___,  KC_LEFT,       KC_DOWN,       KC_UP,              KC_RGHT,             ___x___, ___x___},
+        {_______, ___x___,  ___x___,  ___x___,  ___x___,  ___x___,  LGUI(KC_LBRC), LGUI(KC_RBRC), LGUI(LSFT(KC_EQL)), LGUI(LSFT(KC_MINS)), ___x___, _______},
+        {___x___, ___x___,  ___x___,  KC_DEL,   KC_SPC,   OVERVIEW, _______,       _______,       KC_ENT,             ___x___,             ___x___, ___x___}},
 
     [_FUNCTION] =
     {/*FUNCTION*/
-        {KC_ESC,  ___x___,       ___x___,       ___x___,       ___x___,       ___x___,  ___x___, ___x___,       A_B_TEST,      ___x___,       ___x___,        ___x___},
-        {KC_TAB,  LGUI_T(KC_F1), LALT_T(KC_F2), LCTL_T(KC_F3), LSFT_T(KC_F4), KC_F5,    KC_F6,   RSFT_T(KC_F7), RCTL_T(KC_F8), RALT_T(KC_F9), RGUI_T(KC_F10), ___x___},
-        {_______, ___x___,       ___x___,       ___x___,       ___x___,       ___x___,  KC_F11,  KC_F12,        ___x___,       ___x___,       TO(_SETTINGS),  _______},
-        {___x___, ___x___,       ___x___,       KC_DEL,        KC_SPC,        OVERVIEW, ___x___, ___x___,       QK_BOOT,       ___x___,       ___x___,        ___x___}},
+        {KC_ESC,  ___x___, ___x___, ___x___, ___x___, ___x___,  ___x___, ___x___, A_B_TEST, ___x___, ___x___,       ___x___},
+        {KC_TAB,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,    KC_F6,   KC_F7,   KC_F8,    KC_F9,   KC_F10,        ___x___},
+        {_______, ___x___, ___x___, ___x___, ___x___, ___x___,  KC_F11,  KC_F12,  ___x___,  ___x___, TO(_SETTINGS), _______},
+        {___x___, ___x___, ___x___, KC_DEL,  KC_SPC,  OVERVIEW, ___x___, ___x___, QK_BOOT,  ___x___, ___x___,       ___x___}},
     [_SETTINGS] =
     {/*SETTINGS*/
         {SETTINGS_EXIT, ___x___, ___x___, SETTINGS_UP,   QK_BOOT, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___},
