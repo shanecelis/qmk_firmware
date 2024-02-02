@@ -273,35 +273,35 @@ const char PROGMEM santoku_logo[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] =
     {/*QWERTY*/
-        {KC_ESC,   KC_Q,         KC_W,         KC_E,                   KC_R,         KC_T,         KC_Y,            KC_U,            KC_I,         KC_O,         KC_P,            KC_BSPC},
-        {KC_LCTL,  LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_D),           LSFT_T(KC_F), KC_G,         KC_H,            KC_J,            KC_K,         KC_L,         KC_SCLN,         KC_QUOT},
-        {SHFT_KEY, KC_Z,         KC_X,         KC_C,                   KC_V,         KC_B,         KC_N,            KC_M,            KC_COMM,      KC_DOT,       KC_SLSH,         SHFT_KEY},
-        {___x___,  ___x___,      ___x___,      LT(_FUNCTION, KC_BSLS), KC_SPC,       TAPALTTB,     TT(_NAVIGATION), KC_ENT,     TT(_SYMBOL),       ___x___,      ___x___,         ___x___}},
+        {KC_ESC,   KC_Q,         KC_W,         KC_E,    KC_R,   KC_T,          KC_Y,            KC_U,   KC_I,        KC_O,         KC_P,            KC_BSPC},
+        {KC_LCTL,  LGUI_T(KC_A), LALT_T(KC_S), KC_D,    KC_F,   KC_G,          KC_H,            KC_J,   KC_K,        KC_L,         KC_SCLN,         KC_QUOT},
+        {SHFT_KEY, KC_Z,         KC_X,         KC_C,    KC_V,   KC_B,          KC_N,            KC_M,   KC_COMM,     KC_DOT,       KC_SLSH,         SHFT_KEY},
+        {___x___,  ___x___,      ___x___,      KC_LGUI, KC_SPC, TT(_FUNCTION), TT(_NAVIGATION), KC_ENT, TT(_SYMBOL), ___x___,      ___x___,         ___x___}},
 
     [_SYMBOL] =
     {/*SYMBOL*/
         {KC_GRV,  KC_EXLM,      KC_AT,        KC_HASH,      KC_DLR,       KC_PERC,  KC_CIRC, KC_AMPR,      KC_ASTR,      KC_LPRN,      KC_RPRN,      KC_MINS},
-        {KC_ESC,  LGUI_T(KC_1), LALT_T(KC_2), LCTL_T(KC_3), LSFT_T(KC_4), KC_5,     KC_6,    RSFT_T(KC_7), RCTL_T(KC_8), RALT_T(KC_9), RGUI_T(KC_0), KC_EQL},
-        {_______, KC_BSLS,      KC_UNDS,      KC_PLUS,      KC_LCBR,      KC_RCBR,  KC_LBRC, KC_RBRC,      KC_COMM,      KC_DOT,       KC_SLSH,      _______},
+        {KC_TAB,  LGUI_T(KC_1), LALT_T(KC_2), KC_3,         KC_4,         KC_5,     KC_6,    KC_7,         KC_8,         KC_9,         KC_0,         KC_EQL},
+        {_______, KC_BSLS,      KC_UNDS,      KC_PLUS,      KC_LCBR,      KC_RCBR,  KC_LBRC, KC_RBRC,      KC_COMM,      KC_DOT,       KC_BSLS,      _______},
         {___x___, ___x___,      ___x___,      KC_BSPC,      KC_SPC,       OVERVIEW, _______, _______,      KC_ENT,       ___x___,      ___x___,      ___x___}},
 
     [_NAVIGATION] =
     {/*NAVIGATION*/
-        {KC_TAB,  ___x___,  ___x___,  ___x___,  ___x___,  ___x___,  KC_HOME,       KC_PGDN,       KC_PGUP,            KC_END,               ___x___, ___x___},
-        {KC_ESC,  KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, ___x___, KC_LEFT,       KC_DOWN,       KC_UP,              KC_RGHT,              ___x___, ___x___},
+        {KC_ESC,  ___x___,  ___x___,  ___x___,  ___x___,  ___x___,  KC_HOME,       KC_PGDN,       KC_PGUP,            KC_END,               ___x___, ___x___},
+        {TAPALTTB,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  ___x___,  KC_LEFT,       KC_DOWN,       KC_UP,              KC_RGHT,              ___x___, ___x___},
         {_______, ___x___,  ___x___,  ___x___,  ___x___,  ___x___,  LGUI(KC_LBRC), LGUI(KC_RBRC), LGUI(LSFT(KC_EQL)), LGUI(LSFT(KC_MINS)),  ___x___, _______},
         {___x___, ___x___,  ___x___,  KC_DEL,   KC_SPC,   OVERVIEW, _______,       _______,       KC_ENT,             ___x___,              ___x___, ___x___}},
 
     [_FUNCTION] =
     {/*FUNCTION*/
-        {KC_TAB,  ___x___,       ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, A_B_TEST,       ___x___, ___x___, ___x___},
-        {KC_ESC,  LGUI_T(KC_F1), LALT_T(KC_F2),          LCTL_T(KC_F3),          LSFT_T(KC_F4),     KC_F5,             KC_F6,                 RSFT_T(KC_F7),         RCTL_T(KC_F8), RALT_T(KC_F9), RGUI_T(KC_F10), ___x___},
-        {_______, ___x___,       ___x___,                ___x___,                ___x___,           ___x___,           KC_F11,                KC_F12,                ___x___,       ___x___, TO(_SETTINGS), _______},
-        {___x___, ___x___,       ___x___,                KC_DEL,                 KC_SPC,            OVERVIEW,          ___x___,               ___x___,               QK_BOOT,       ___x___, ___x___, ___x___}},
+        {KC_ESC,  ___x___,       ___x___,       ___x___,       ___x___,       ___x___,  ___x___, ___x___,       A_B_TEST,      ___x___,       ___x___,        ___x___},
+        {KC_TAB,  LGUI_T(KC_F1), LALT_T(KC_F2), LCTL_T(KC_F3), LSFT_T(KC_F4), KC_F5,    KC_F6,   RSFT_T(KC_F7), RCTL_T(KC_F8), RALT_T(KC_F9), RGUI_T(KC_F10), ___x___},
+        {_______, ___x___,       ___x___,       ___x___,       ___x___,       ___x___,  KC_F11,  KC_F12,        ___x___,       ___x___,       TO(_SETTINGS),  _______},
+        {___x___, ___x___,       ___x___,       KC_DEL,        KC_SPC,        OVERVIEW, ___x___, ___x___,       QK_BOOT,       ___x___,       ___x___,        ___x___}},
     [_SETTINGS] =
     {/*SETTINGS*/
-        {___x___, ___x___, ___x___, SETTINGS_UP, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___},
-        {SETTINGS_EXIT, ___x___, SETTINGS_LEFT, SETTINGS_DOWN, SETTINGS_RIGHT, ___x___, SETTINGS_LEFT, SETTINGS_DOWN, SETTINGS_UP, SETTINGS_RIGHT, ___x___, ___x___},
+        {SETTINGS_EXIT, ___x___, ___x___, SETTINGS_UP,   QK_BOOT, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___},
+        {___x___, ___x___, SETTINGS_LEFT, SETTINGS_DOWN, SETTINGS_RIGHT, ___x___, SETTINGS_LEFT, SETTINGS_DOWN, SETTINGS_UP, SETTINGS_RIGHT, ___x___, ___x___},
         {___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, TO(_QWERTY), ___x___},
         {___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, SETTINGS_EXIT, ___x___, ___x___, ___x___}
     }
@@ -334,7 +334,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case TAPALTTB: // Improved on but inspired by: https://github.com/qmk/qmk_firmware/blob/master/keyboards/dz60/keymaps/_bonfire/not-in-use/super-alt-tab.c
             if (record->event.pressed) {
                 is_alt_tab_pressed = ALTTAB_PRESSED;
-                register_code(KC_LALT);
+                register_code(KC_LGUI);
                 tap_code(KC_TAB);
             } else {
                 is_alt_tab_pressed = ALTTAB_WAITING;
@@ -439,7 +439,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 // This is currently only used for the TAPALTTB feature
 void matrix_scan_user(void) {
     if (is_alt_tab_pressed == ALTTAB_WAITING && timer_elapsed(alt_tab_timer) > alt_tab_timeout) {
-        unregister_code(KC_LALT);
+        unregister_code(KC_LGUI);
         alt_tab_timer = 0;
         is_alt_tab_pressed = ALTTAB_INACTIVE;
     }
