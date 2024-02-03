@@ -288,8 +288,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NAVIGATION] =
     {/*NAVIGATION*/
-        {_______, ___x___,  ___x___,  ___x___,  ___x___,  ___x___,  KC_HOME,       KC_PGDN,       KC_PGUP,            KC_END,              ___x___, ___x___},
-        {TAPALTTB, ___x___, ___x___,  ___x___,  ___x___,  ___x___,  KC_LEFT,       KC_DOWN,       KC_UP,              KC_RGHT,             ___x___, ___x___},
+        {TAPALTTB, ___x___,  ___x___,  ___x___,  ___x___,  ___x___,  KC_HOME,       KC_PGDN,       KC_PGUP,            KC_END,              ___x___, ___x___},
+        {LCTL(KC_TAB), ___x___, ___x___,  ___x___,  ___x___,  ___x___,  KC_LEFT,       KC_DOWN,       KC_UP,              KC_RGHT,             ___x___, ___x___},
         {_______, ___x___,  ___x___,  ___x___,  ___x___,  ___x___,  LGUI(KC_LBRC), LGUI(KC_RBRC), LGUI(LSFT(KC_EQL)), LGUI(LSFT(KC_MINS)), ___x___, _______},
         {___x___, ___x___,  ___x___,  KC_DEL,   KC_SPC,   OVERVIEW, _______,       _______,       KC_ENT,             ___x___,             ___x___, ___x___}},
 
