@@ -53,11 +53,20 @@
 #        define CHARYBDIS_POINTER_ACCELERATION_FACTOR 24
 #    endif  // !CHARYBDIS_POINTER_ACCELERATION_FACTOR
 
+typedef enum {
+MOUSE = 0,
+DRAG = 1,
+NONE = 2,
+END = 3,
+} mouse_mode_t;
+
 typedef union {
-    uint8_t raw;
+    uint16_t raw;
     struct {
         uint8_t pointer_default_dpi : 4;  // 16 steps available.
         uint8_t pointer_sniping_dpi : 2;  // 4 steps available.
+        uint8_t mouse_mode : 2;
+        /* bool    is_dragscroll_toggled : 1; */
         bool    is_dragscroll_enabled : 1;
         bool    is_sniping_enabled : 1;
     } __attribute__((packed));
@@ -74,7 +83,7 @@ static charybdis_config_t g_charybdis_config = {0};
  * explicitly set them to `false` in this function.
  */
 static void read_charybdis_config_from_eeprom(charybdis_config_t* config) {
-    config->raw                   = eeconfig_read_kb() & 0xff;
+    config->raw                   = eeconfig_read_kb() & 0xffff;
     config->is_dragscroll_enabled = false;
     config->is_sniping_enabled    = false;
 }
@@ -160,6 +169,11 @@ void charybdis_set_pointer_dragscroll_enabled(bool enable) {
     maybe_update_pointing_device_cpi(&g_charybdis_config);
 }
 
+mouse_mode_t charybdis_get_pointer_mode(void) { return (mouse_mode_t) g_charybdis_config.mouse_mode; }
+
+void charybdis_set_pointer_mode(mouse_mode_t mode) {
+    g_charybdis_config.mouse_mode = (uint8_t) mode;
+}
 void pointing_device_init_kb(void) { maybe_update_pointing_device_cpi(&g_charybdis_config); }
 
 #    ifndef CONSTRAIN_HID
@@ -220,7 +234,12 @@ static void pointing_device_task_charybdis(report_mouse_t* mouse_report) {
 }
 
 report_mouse_t pointing_device_task_kb(report_mouse_t mouse_report) {
-    if (is_keyboard_master()) {
+    mouse_mode_t mode = charybdis_get_pointer_mode();
+    if (mode == NONE) {
+        mouse_report.x = 0;
+        mouse_report.y = 0;
+        mouse_report.buttons = 0;
+    } else if (is_keyboard_master()) {
         pointing_device_task_charybdis(&mouse_report);
         mouse_report = pointing_device_task_user(mouse_report);
     }
@@ -304,12 +323,20 @@ bool process_record_kb(uint16_t keycode, keyrecord_t* record) {
                 charybdis_set_pointer_sniping_enabled(!charybdis_get_pointer_sniping_enabled());
             }
             break;
-        case DRAGSCROLL_MODE:
-            charybdis_set_pointer_dragscroll_enabled(record->event.pressed);
+        case DRAGSCROLL_MODE: {
+            bool dragscroll_mode = charybdis_get_pointer_mode() == DRAG;
+            charybdis_set_pointer_dragscroll_enabled(dragscroll_mode ^ record->event.pressed);
             break;
+        }
         case DRAGSCROLL_MODE_TOGGLE:
             if (record->event.pressed) {
-                charybdis_set_pointer_dragscroll_enabled(!charybdis_get_pointer_dragscroll_enabled());
+                mouse_mode_t mode = charybdis_get_pointer_mode();
+                mode++;
+                if (mode >= END) {
+                    mode = 0;
+                }
+                charybdis_set_pointer_mode(mode);
+                charybdis_set_pointer_dragscroll_enabled(mode == DRAG);
             }
             break;
     }
