@@ -11,10 +11,12 @@ NKRO_ENABLE = yes       # USB Nkey Rollover
 
 # Options that are specific to current build of Santoku
 PS2_MOUSE_ENABLE = yes
+PS2_DRIVER = usart
 PS2_USE_USART = yes
-#PS2_USE_BUSYWAIT = yes
-#MOUSEKEY_ENABLE = yes
+# PS2_USE_BUSYWAIT = yes
+# MOUSEKEY_ENABLE = yes
 ENCODER_ENABLE = yes
 LTO_ENABLE = yes
 OLED_ENABLE = yes
-#POINTING_DEVICE_ENABLE = yes # used for the scroll wheel
+POINTING_DEVICE_ENABLE = yes # used for the scroll wheel
+POINTING_DEVICE_DRIVER = custom # used for the scroll wheel

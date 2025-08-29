@@ -16,18 +16,11 @@
 
 #pragma once
 
-#include "quantum.h"
-#include "ps2_mouse.h"
-#include "pointing_device.h"
+//#define COMBO_TERM  40  /* time limit in milliseconds combos need to be completed */	
+//#define COMBO_COUNT 6
 
-#define LAYOUT( \
-    K00, K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, K0B, \
-    K10, K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, K1B, \
-    K20, K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A, K2B, \
-                   K33, K34, K35, K36, K37, K38\
-) { \
-    { K00,   K01,   K02,   K03, K04, K05, K06, K07, K08, K09,   K0A,   K0B }, \
-    { K10,   K11,   K12,   K13, K14, K15, K16, K17, K18, K19,   K1A,   K1B }, \
-    { K20,   K21,   K22,   K23, K24, K25, K26, K27, K28, K29,   K2A,   K2B }, \
-    { KC_NO, KC_NO, KC_NO, K33, K34, K35, K36, K37, K38, KC_NO, KC_NO, KC_NO }  \
-}
+#define TAPPING_TOGGLE 2  /* How many times TT(__layer__) needs to be tapped to stick */
+#define IGNORE_MOD_TAP_INTERRUPT
+#define TAPPING_TERM 150
+
+#define PS2_MOUSE_INVERT_BUTTONS
